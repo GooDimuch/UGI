@@ -5,6 +5,7 @@
 		public ShipSlot.Type SlotType { get; set; }
 
 		protected SlotItem(string name, int hp, ShipSlot.Type slotType) {
+			Name = name;
 			HP = hp;
 			SlotType = slotType;
 		}
