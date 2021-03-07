@@ -1,5 +1,8 @@
 ﻿namespace UGI_Test_1 {
-	public static class Constants { }
+	public static class Constants {
+		public const int DEFAULT_LEVEL = 1;
+
+	}
 
 	public static class SpaceshipConstants {
 		public const int DEFAULT_SPACESHIP_HP = 600;

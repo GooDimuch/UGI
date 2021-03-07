@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace UGI_Test_1 {
 	public abstract class Spaceship : IUpgradable, IDamageable {
 		public int HP { get; set; }
 		public int Level { get; set; }
-
-		public int AmountWeaponSlots { get; private set; }
 		public bool IsEnemy { get; private set; }
+		public List<ShipSlot> WeaponSlots { get; } = new List<ShipSlot>();
 
-		private readonly List<ShipSlot> weaponSlots = new List<ShipSlot>();
+		private readonly IList<ShipSlot.Type> _slotTypes;
 
-		protected Spaceship(int hp, int amountWeaponSlots, bool isEnemy = false) {
+		protected Spaceship(int hp, IList<ShipSlot.Type> slotTypes, bool isEnemy = false) {
 			HP = hp;
-			AmountWeaponSlots = amountWeaponSlots;
+			_slotTypes = slotTypes;
 			IsEnemy = isEnemy;
 
-			SetLevel(1);
-			CreateWeaponSlots();
+			SetLevel(Constants.DEFAULT_LEVEL);
+			CreateSlotShip();
 		}
 
 		public virtual void SetLevel(int level) { Level = level; }
@@ -30,10 +30,20 @@ namespace UGI_Test_1 {
 
 		public virtual void Die() { }
 
-		private void CreateWeaponSlots() {
-			for (var i = 0; i < AmountWeaponSlots; i++) { AddWeaponSlot(ShipSlot.Type.Light); }
+		private void CreateSlotShip() {
+			foreach (var type in _slotTypes) { AddSlotShip(type); }
 		}
 
-		public void AddWeaponSlot(ShipSlot.Type slotType) { weaponSlots.Add(new ShipSlot(slotType)); }
+		public void AddSlotShip(ShipSlot.Type slotType) { WeaponSlots.Add(new ShipSlot(slotType)); }
+
+		public bool TryAddSlotItem(SlotItem item, out ShipSlot slot) {
+			slot = WeaponSlots.Find(shipSlot => shipSlot.SlotType > item.SlotType && shipSlot.SlotItem == null);
+			if (slot == null) {
+				Debug.LogError($"Can't add {item} to {this}");
+				return false;
+			}
+			slot.Add(item);
+			return true;
+		}
 	}
 }
