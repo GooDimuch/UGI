@@ -5,18 +5,24 @@ namespace UGI_Test_1 {
 	public class PlayerController : MonoBehaviour {
 		private void Start() {
 			var scout = new Scout();
-			if (scout.TryAddSlotItem(new GunX2MachineGunX2PlasmaCannon(), out var slot)) {
-				Debug.Log(slot.SlotItem.GetType());
-				if (slot.SlotItem is GunX2MachineGunX2PlasmaCannon mgX2pc) {
-					Debug.Log(mgX2pc.items.Count);
-				}
+			scout.TryAddSlotItem(new MG_PC_ES(), out _);
+			if (scout.TryAddSlotItem(new MG_MG_PC_PC(), out var slot)) {
+				if (slot.SlotItem is ComboSlotItem comboSlot) { Debug.Log(comboSlot.Items.Count); }
 			}
+			scout.TryAddSlotItem(new MG_PC_ES(), out _);
+			scout.TryAddSlotItem(new SmallEngine(){Level = 2}, out _);
+			scout.TryAddSlotItem(new EnergyShield(), out _);
+			scout.TryAddSlotItem(new PlasmaCannon(), out _);
 
-			var mg = new MachineGun();
-			// var mgX2 = new MachineGunX2(mg);
-			// var mgX2pc = new PlasmaCannon(mgX2);
+			scout.PrintSlots();
+			scout.PrintSlotItems();
 
-			EditorApplication.isPlaying = false;
+			var shipGO = new GameObject(scout.Name);
+			shipGO.transform.parent = transform;
+			var shipController = shipGO.AddComponent<SpaceshipController>();
+			shipController.Spaceship = scout;
+
+			// EditorApplication.isPlaying = false;
 		}
 
 		private void Update() { }

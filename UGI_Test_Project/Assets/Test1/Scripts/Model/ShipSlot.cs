@@ -3,9 +3,9 @@
 namespace UGI_Test_1 {
 	public class ShipSlot : ISlotable {
 		public enum Type {
-			Heavy,
-			Medium,
 			Light,
+			Medium,
+			Heavy,
 		}
 
 		public SlotItem SlotItem;
@@ -20,6 +20,8 @@ namespace UGI_Test_1 {
 		}
 
 		public void Remove() => SlotItem = null;
+
+		public override string ToString() { return $"{SlotType} contain {SlotItem?.ToString() ?? "null"}"; }
 	}
 
 	public class IncorrectSlotTypeException : Exception {
