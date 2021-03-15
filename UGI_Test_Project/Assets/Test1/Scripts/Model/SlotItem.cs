@@ -21,9 +21,9 @@ namespace UGI_Test_1 {
 
 		public override string ToString() {
 			return $"{{{nameof(Name)}: {Name}, " + $"{nameof(SlotType)}: {SlotType}, " + $"{nameof(HP)}: {HP}}}";
-			var obj = this;
-			return
-					$"{{{string.Join(", ", GetType().GetProperties().Select(info => $"{info.Name}: {info.GetValue(obj)}"))}}}";
+			// var obj = this;
+			// return
+			// 		$"{{{string.Join(", ", GetType().GetProperties().Select(info => $"{info.Name}: {info.GetValue(obj)}"))}}}";
 		}
 	}
 }
