@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 8152212012991055115}
   - component: {fileID: 8152212012991055114}
   - component: {fileID: 8152212012991055125}
+  - component: {fileID: 611787591943473202}
+  - component: {fileID: 7203706358412396243}
+  - component: {fileID: 7818778218340211305}
   m_Layer: 5
   m_Name: New_skill_button
   m_TagString: Untagged
@@ -119,6 +122,48 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &611787591943473202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152212012991055127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b910680ce02903c49852d2829dfa21d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainButton: {fileID: 8152212012991055125}
+  SkillImage: {fileID: 1999095772610024622}
+  EventTrigger: {fileID: 7818778218340211305}
+--- !u!114 &7203706358412396243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152212012991055127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa2f715f274a86478eae148de3a2736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Model: {fileID: 0}
+  SkillInfoGO: {fileID: 0}
+--- !u!114 &7818778218340211305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152212012991055127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &8811563058791702174
 GameObject:
   m_ObjectHideFlags: 0
