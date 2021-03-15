@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 8529846193013518100}
   - component: {fileID: 8740996502720174248}
   - component: {fileID: 4612436557118279344}
-  - component: {fileID: 6899311148570603935}
+  - component: {fileID: 4890230363034188597}
   m_Layer: 5
   m_Name: Hero_Item
   m_TagString: Untagged
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &6899311148570603935
+--- !u!114 &4890230363034188597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,9 +411,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8125022548623345541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8abfa056b8e69a64d9e018094c4318d9, type: 3}
+  m_Script: {fileID: 11500000, guid: d9bf9563c778b41419efffbb4dc0310d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IconPath: 
   MainButton: {fileID: 8740996502720174248}
   HeroImage: {fileID: 2269722036734734009}
   ExpSlider: {fileID: 4570866714674553184}

@@ -2,7 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeroIconContainer : MonoBehaviour {
+public class HeroIconView : MonoBehaviour {
+	[HideInInspector] public string IconPath;
 	public Button MainButton;
 	public Image HeroImage;
 	public Slider ExpSlider;
