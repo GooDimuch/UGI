@@ -9,7 +9,9 @@ namespace UGI_Test_1 {
 		public float HP { get; set; }
 		public int Level { get; set; }
 		public bool IsEnemy { get; private set; }
-		public List<ShipSlot> ShipSlots { get; } = new List<ShipSlot>();
+
+		private readonly List<ShipSlot> _shipSlots = new List<ShipSlot>();
+		public IReadOnlyList<ShipSlot> ShipSlots => _shipSlots;
 
 		public delegate void DieHandler();
 
@@ -22,8 +24,8 @@ namespace UGI_Test_1 {
 			HP = hp;
 			_slotTypes = slotTypes;
 			IsEnemy = isEnemy;
+			Level = Constants.DEFAULT_LEVEL;
 
-			SetLevel(Constants.DEFAULT_LEVEL);
 			CreateSlotShip();
 		}
 
@@ -60,12 +62,12 @@ namespace UGI_Test_1 {
 		}
 
 		public void AddSlotShip(ShipSlot.Type slotType) {
-			ShipSlots.Add(new ShipSlot(slotType));
-			ShipSlots.Sort((slot1, slot2) => slot1.SlotType.CompareTo(slot2.SlotType));
+			_shipSlots.Add(new ShipSlot(slotType));
+			_shipSlots.Sort((slot1, slot2) => slot1.SlotType.CompareTo(slot2.SlotType));
 		}
 
 		public bool TryAddSlotItem(SlotItem item, out ShipSlot slot) {
-			slot = ShipSlots.Find(shipSlot => shipSlot.SlotType >= item.SlotType && shipSlot.SlotItem == null);
+			slot = ShipSlots.FirstOrDefault(shipSlot => shipSlot.SlotType >= item.SlotType && shipSlot.SlotItem == null);
 			if (slot == null) {
 				Debug.LogError($"Can't add {item} to {this}");
 				return false;

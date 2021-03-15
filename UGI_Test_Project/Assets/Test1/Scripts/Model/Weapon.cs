@@ -20,8 +20,7 @@
 			ClipSize = clipSize;
 			ReloadTime = reloadTime;
 			AmmoType = ammoType;
-
-			SetLevel(Constants.DEFAULT_LEVEL);
+			Level = Constants.DEFAULT_LEVEL;
 		}
 
 		public virtual void SetLevel(int level) { Level = level; }
