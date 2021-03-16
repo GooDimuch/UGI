@@ -32,6 +32,8 @@ namespace UGI_Test_2 {
 
 		public void SetSelected(bool value) { View.SelectedBorder.SetActive(value); }
 
-		public void MainButton_OnClick() { Debug.Log($"click {Model}"); }
+		public void MainButton_OnClick() {
+			// Debug.Log($"click {Model}");
+		}
 	}
 }

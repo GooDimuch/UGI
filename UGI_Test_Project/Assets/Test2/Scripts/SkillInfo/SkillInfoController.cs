@@ -37,7 +37,7 @@ namespace UGI_Test_2 {
 		}
 
 		private void SkillButton_OnClick() {
-			Debug.Log($"{MethodBase.GetCurrentMethod().Name} {Model.SkillName}");
+			// Debug.Log($"{MethodBase.GetCurrentMethod().Name} {Model.SkillName}");
 		}
 
 		private void OnPointerEnterDelegate(PointerEventData pointerEventData) {
