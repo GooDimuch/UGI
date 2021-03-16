@@ -6,6 +6,7 @@
 
 		public EnergyShield(float plasmaBeamResist) : base(nameof(EnergyShield), 100, ShipSlot.Type.Medium) {
 			PlasmaBeamResist = plasmaBeamResist;
+			Spaceship.ObtainedBulletResist += 10;
 		}
 	}
 }
