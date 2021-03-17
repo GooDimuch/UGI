@@ -15,13 +15,24 @@ namespace UGI_Test_1 {
 		private void Update() {
 			CheckRaycast();
 			DamageShip();
+			AddHealthBar();
 		}
 
 		private void DamageShip() {
 			if (Input.GetKeyDown(KeyCode.Alpha1)) { SelectedSpaceship.TakeDamage(100, Ammo.Type.PlasmaBeam); }
-			if (Input.GetKeyDown(KeyCode.Alpha2)) {
-				SelectedSpaceship.SetDamageToItems();
-			}
+			if (Input.GetKeyDown(KeyCode.Alpha2)) { SelectedSpaceship.SetDamageToItems(); }
+		}
+
+		private void AddHealthBar() {
+			if (SelectedSpaceship == null) { return; }
+			var healthBarLength = 10;
+			var maxHP = SelectedSpaceship.Model.MaxHP;
+			var hp = SelectedSpaceship.Model.HP;
+			var ratio = (int) (hp / maxHP * healthBarLength);
+			var name = SelectedSpaceship.Model.Name.Split(' ')[0];
+			var health = "";
+			for (var i = 0; i < healthBarLength; i++) { health += i < ratio ? "0" : "_"; }
+			SelectedSpaceship.Model.Name = name + $" [{health}]";
 		}
 
 		private void CheckRaycast() {
