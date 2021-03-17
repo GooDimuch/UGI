@@ -8,20 +8,16 @@ namespace UGI_Test_1 {
 			IDamageableController {
 		private readonly List<ShipSlotController> _shipSlots = new List<ShipSlotController>();
 
-		private void Start() { }
-
 		protected override void BindModelAndView(SpaceshipView view, Spaceship model) {
+			view.NameText.text = model.Name;
 			CreateSlotShip(view, model);
 		}
 
 		private void CreateSlotShip(SpaceshipView view, Spaceship model) {
-			var shipSlotsContainer = new GameObject("ShipSlots");
-			shipSlotsContainer.transform.parent = transform;
-			shipSlotsContainer.transform.localPosition = Vector3.zero;
 			foreach (var type in model.SlotTypes) {
-				var prefab = Resources.Load($"Prefabs/ShipSlots/{type}Slot") as GameObject ??
+				var prefab = Resources.Load($"Prefabs/ShipSlots/{type}_{nameof(ShipSlot)}") as GameObject ??
 						throw new Exception($"Can't find prefab for {type}Slot by \"ShipSlots/{type}Slot\"");
-				var go = Instantiate(prefab, shipSlotsContainer.transform);
+				var go = Instantiate(prefab, view.ShipSlotsContainer);
 				var viewController = GetController<ShipSlotController>(go);
 				_shipSlots.Add(viewController);
 				model.AddSlotShip(viewController.Model);
@@ -29,22 +25,29 @@ namespace UGI_Test_1 {
 			view.AddSlotShip(_shipSlots);
 		}
 
-		private T GetController<T>(GameObject go) where T : MonoBehaviour {
+		private static T GetController<T>(GameObject go) where T : MonoBehaviour {
 			if (!go.TryGetComponent(typeof(T), out var component)) { component = go.AddComponent<T>(); }
 			return component as T ?? throw new Exception($"Can't get {nameof(T)} component");
 		}
 
-		public bool TryAddSlotItem(SlotItem item, out ShipSlot slot) {
-			slot = Model.ShipSlots.FirstOrDefault(shipSlot =>
-					shipSlot.SlotType >= item.SlotType && shipSlot.SlotItem == null);
-			if (slot == null) {
-				Debug.LogError($"Can't add {item} to {this}");
-				return false;
-			}
-			Debug.Log($"Add {item} to slot {slot.SlotType}");
-			slot.Add(item);
-			// item.Selected = true;
+		public bool ContainsItem(SlotItemController item) =>
+				Model.ShipSlots.Select(slot => slot.SlotItem).Contains(item.Model);
+
+		public int CountItem(Type type) => Model.ShipSlots.Count(slot => slot.SlotItem?.GetType() == type);
+
+		public bool TryAddSlotItem(SlotItemController item, out ShipSlotController slot) {
+			slot = _shipSlots.FirstOrDefault(shipSlot =>
+					shipSlot.Model.SlotType == item.Model.SlotType && shipSlot.Model.SlotItem == null);
+			if (slot == null) { return false; }
+			slot.AddItem(item);
+			item.Spaceship = this;
 			return true;
+		}
+
+		public void RemoveSlotItem(SlotItemController item) {
+			var slot = _shipSlots.FirstOrDefault(shipSlot => shipSlot.Model.SlotItem?.Id == item.Model.Id);
+			item.Spaceship = null;
+			slot?.Remove(item);
 		}
 
 		public void TakeDamage(float damage, Ammo.Type damageType) {
@@ -59,17 +62,25 @@ namespace UGI_Test_1 {
 				default: throw new ArgumentOutOfRangeException(nameof(damageType), damageType, null);
 			}
 			Model.HP -= damage * (1 - resist);
-			// if (_spaceship.HP < 0) { Die(); }
+			if (Model.HP <= 0) { Die(); }
 		}
 
 		public void SetLevel(int level) { Model.Level = level; }
+
 		public void Upgrade(int addLevel) { }
 
 		public void Die() {
-			Debug.Log("Die");
+			Debug.Log($"{Model.Name} is die");
 			OnDestroy();
 		}
 
 		private void OnDestroy() { gameObject.SetActive(false); }
+
+		public void SetDamageToItems() {
+			_shipSlots.Where(slot => slot.SlotItem != null)
+					.Select(slot => slot.SlotItem)
+					.ToList()
+					.ForEach(item => item.TakeDamage(1, Ammo.Type.Bullet));
+		}
 	}
 }

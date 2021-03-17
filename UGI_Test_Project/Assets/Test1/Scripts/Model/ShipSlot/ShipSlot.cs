@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace UGI_Test_1 {
-	[CreateAssetMenu(fileName = "Slot", menuName = "ScriptableObjects/Task_1/ShipSlot")]
-	public class ShipSlot : ScriptableObject, ISlotable {
+	[CreateAssetMenu(fileName = nameof(ShipSlot), menuName = "ScriptableObjects/Task_1/" + nameof(ShipSlot))]
+	public class ShipSlot : BaseModel, ISlotable {
 		public enum Type {
 			Light,
 			Medium,

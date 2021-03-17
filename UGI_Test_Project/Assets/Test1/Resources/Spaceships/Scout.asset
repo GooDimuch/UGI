@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443cd18b44a1bdc48b565bae280e988b, type: 3}
   m_Name: Scout
   m_EditorClassIdentifier: 
-  Name: Scout
-  HP: 600
+  _name: Scout
+  _maxHp: 600
+  _hp: 600
+  _level: 1
   BulletResist: 0
   PlasmaResist: 0
   _slotTypes: 02000000000000000000000001000000

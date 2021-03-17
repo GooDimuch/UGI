@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73056a9989b08e44853ca2e711a6f82, type: 3}
   m_Name: MachineGun
   m_EditorClassIdentifier: 
+  _id: 13
   _name: MachineGun
+  _maxHp: 1
   _hp: 1
   _slotType: 0
+  _level: 0

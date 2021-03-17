@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 7819876057828374749, guid: 2420c79e7b701614b8c4f67c5db4e409,
         type: 3}
       propertyPath: m_Name
-      value: MediumSlot Variant
+      value: Medium_ShipSlot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2420c79e7b701614b8c4f67c5db4e409, type: 3}

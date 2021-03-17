@@ -2,7 +2,8 @@
 using UnityEngine;
 
 namespace UGI_Test_1 {
-	[CreateAssetMenu(fileName = "Viper", menuName = "ScriptableObjects/Task_1/Spaceships/Viper")]
+	[CreateAssetMenu(fileName = nameof(Viper),
+			menuName = "ScriptableObjects/Task_1/" + nameof(Spaceship) + "s/" + nameof(Viper))]
 	public class Viper : Spaceship {
 		public Viper() : base(nameof(Viper),
 				100,

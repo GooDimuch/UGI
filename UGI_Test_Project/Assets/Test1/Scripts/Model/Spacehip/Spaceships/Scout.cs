@@ -2,7 +2,8 @@
 using UnityEngine;
 
 namespace UGI_Test_1 {
-	[CreateAssetMenu(fileName = "Scout", menuName = "ScriptableObjects/Task_1/Spaceships/Scout")]
+	[CreateAssetMenu(fileName = nameof(Scout),
+			menuName = "ScriptableObjects/Task_1/" + nameof(Spaceship) + "s/" + nameof(Scout))]
 	public class Scout : Spaceship {
 		public Scout() : base(nameof(Scout),
 				SpaceshipConstants.SCOUT_SPACESHIP_HP,

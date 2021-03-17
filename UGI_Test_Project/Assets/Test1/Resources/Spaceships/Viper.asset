@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Viper
   m_EditorClassIdentifier: 
   _name: Viper
+  _maxHp: 500
   _hp: 500
   _level: 0
   BulletResist: 0

@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 
 namespace UGI_Test_1 {
-	[CreateAssetMenu(fileName = "MachineGun",
-			menuName = "ScriptableObjects/Task_1/SlotItems/Weapons/MachineGun")]
+	[CreateAssetMenu(fileName = nameof(MachineGun),
+			menuName = "ScriptableObjects/Task_1/" +
+					nameof(SlotItem) +
+					"s/" +
+					nameof(Weapon) +
+					"s/" +
+					nameof(MachineGun))]
 	public class MachineGun : Weapon {
 		public MachineGun() : base(nameof(MachineGun),
 				WeaponConstants.MACHINE_GUN_HP,

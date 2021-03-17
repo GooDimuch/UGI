@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace UGI_Test_1 {
 	public abstract class ComboSlotItem : SlotItem {
-		private readonly List<SlotItem> _items = new List<SlotItem>();
+#region inspector
+		[SerializeField] private List<SlotItem> _items;
+#endregion
+
 		public IReadOnlyList<SlotItem> Items => _items;
 
 		protected ComboSlotItem(string name, int hp, ShipSlot.Type slotType, params SlotItem[] items) : base(name,

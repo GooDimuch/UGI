@@ -1,4 +1,13 @@
-﻿namespace UGI_Test_1 {
+﻿using UnityEngine;
+
+namespace UGI_Test_1 {
+	[CreateAssetMenu(fileName = nameof(PlasmaCannon),
+			menuName = "ScriptableObjects/Task_1/" +
+					nameof(SlotItem) +
+					"s/" +
+					nameof(Weapon) +
+					"s/" +
+					nameof(PlasmaCannon))]
 	public class PlasmaCannon : Weapon {
 		public PlasmaCannon() : base(nameof(PlasmaCannon),
 				WeaponConstants.PLASMA_CANNON_HP,
