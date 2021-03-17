@@ -2,7 +2,8 @@
 using UnityEngine;
 
 namespace UGI_Test_2 {
-	[CreateAssetMenu(fileName = "New_Hero_Icon", menuName = "ScriptableObjects/HeroIcon")]
+	[CreateAssetMenu(fileName = nameof(HeroIconModel),
+			menuName = "ScriptableObjects/Task_2/" + nameof(HeroIconModel))]
 	public class HeroIconModel : ScriptableObject {
 		public string Name;
 		public int Level;
