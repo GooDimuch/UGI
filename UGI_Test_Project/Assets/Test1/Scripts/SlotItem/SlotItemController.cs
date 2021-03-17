@@ -22,6 +22,10 @@ namespace UGI_Test_1 {
 			view.NameText.text = model.Name;
 		}
 
+		protected override void SyncViewModel(SlotItemView view, SlotItem model) {
+			view.NameText.text = model.Name;
+		}
+
 		protected virtual void OnAdded() { }
 
 		protected virtual void OnRemoved() { }

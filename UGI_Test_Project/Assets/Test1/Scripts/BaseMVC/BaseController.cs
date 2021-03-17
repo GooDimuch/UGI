@@ -31,7 +31,10 @@ namespace UGI_Test_1 {
 			if (View == null) { _view = InitView(); }
 		}
 
-		private void Update() { DebugModel = Model?.ToFullString(); }
+		protected void Update() {
+			SyncViewModel(View, Model);
+			DebugModel = Model?.ToFullString();
+		}
 
 		private T InitView() {
 			var view = GetComponent<T>();
@@ -40,6 +43,8 @@ namespace UGI_Test_1 {
 		}
 
 		protected abstract void BindModelAndView(T view, E model);
+
+		protected abstract void SyncViewModel(T view, E model);
 
 		public override string ToString() => Model.ToString();
 	}

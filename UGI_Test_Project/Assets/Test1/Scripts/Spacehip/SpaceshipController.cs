@@ -13,6 +13,10 @@ namespace UGI_Test_1 {
 			CreateSlotShip(view, model);
 		}
 
+		protected override void SyncViewModel(SpaceshipView view, Spaceship model) {
+			view.NameText.text = model.Name;
+		}
+
 		private void CreateSlotShip(SpaceshipView view, Spaceship model) {
 			foreach (var type in model.SlotTypes) {
 				var prefab = Resources.Load($"Prefabs/ShipSlots/{type}_{nameof(ShipSlot)}") as GameObject ??

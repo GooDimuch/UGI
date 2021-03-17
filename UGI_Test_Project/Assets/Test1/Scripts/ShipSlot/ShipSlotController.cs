@@ -6,6 +6,10 @@
 			view.MeshRenderer.material.color = model.PrefabColor;
 		}
 
+		protected override void SyncViewModel(ShipSlotView view, ShipSlot model) {
+			view.MeshRenderer.material.color = model.PrefabColor;
+		}
+
 		public void AddItem(SlotItemController item) {
 			SlotItem = item;
 			Model.Add(item.Model);
