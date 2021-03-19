@@ -15,6 +15,7 @@ namespace UGI_Test.UGI_Test_2 {
 
 		private void Start() {
 			Content = GetContent();
+			for (var i = 0; i < 2; i++) { AddItem(0); }
 			for (var i = 0; i < AmountHero; i++) { AddItem(); }
 		}
 
@@ -27,8 +28,11 @@ namespace UGI_Test.UGI_Test_2 {
 		}
 
 		public void AddItem() {
-			var heroId = Random.Range(0, HeroPathManager.Instance.HeroData.Count + 1) %
-					HeroPathManager.Instance.HeroData.Count;
+			var heroId = Random.Range(0, HeroPathManager.Instance.HeroData.Count);
+			AddItem(heroId);
+		}
+
+		public void AddItem(int heroId) {
 			var model = Instantiate(HeroPathManager.Instance.HeroData[heroId].HeroIconModel) as HeroIconModel ??
 					throw new Exception($"Can't instantiate {HeroPathManager.Instance.HeroData[heroId].HeroIconModel}");
 			model.HeroId = heroId;
