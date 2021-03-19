@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public static class UnityExtension {
 	/// <summary> 
@@ -41,5 +43,10 @@ public static class UnityExtension {
 	public static T FindFirst<T>(this Object obj, string name = null) where T : Object {
 		var gameObject = obj.FindFirst(name);
 		return gameObject == null ? null : gameObject.GetComponent<T>();
+	}
+
+	public static T GetComponentForce<T>(this GameObject go) where T : Component {
+		if (!go.TryGetComponent(typeof(T), out var component)) { component = go.AddComponent<T>(); }
+		return component as T ?? throw new Exception($"Can't get {nameof(T)} component");
 	}
 }
