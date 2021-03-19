@@ -7,7 +7,6 @@ namespace UGI_Test.UGI_Test_2 {
 
 		private HeroPreviewController _selectedHeroPreview;
 
-
 		[SerializeField] private float slowSpeedRotation = 0.03f;
 		[SerializeField] private float speedRotationTouch = 0.03f;
 		[SerializeField] private float speedRotationMouse = 0.3f;
@@ -36,10 +35,7 @@ namespace UGI_Test.UGI_Test_2 {
 		}
 
 		private void CreateNewHeroPreview(int id) {
-			var prefab = Resources.Load(HeroPathManager.Instance.HeroData[id].HeroPreviewPath) as GameObject ??
-					throw new Exception(
-							$"Can't find prefab for {HeroPathManager.Instance.HeroData[id].HeroPreviewPath}\"");
-			var go = Instantiate(prefab, transform);
+			var go = Instantiate(HeroPathManager.Instance.HeroData[id].HeroPreviewPrefab, transform);
 			var viewController = go.GetComponentForce<HeroPreviewController>();
 			_rb = go.GetComponentForce<Rigidbody>();
 			_rb.useGravity = false;
@@ -48,6 +44,7 @@ namespace UGI_Test.UGI_Test_2 {
 		}
 
 		private void RotateHeroPreview() {
+			if (_rb == null) { return; }
 			if (Input.GetMouseButtonDown(0)) { _isRotating = true; }
 			if (Input.GetMouseButtonUp(0)) { _isRotating = false; }
 			if (Input.GetMouseButton(0) && _isRotating) {

@@ -29,9 +29,8 @@ namespace UGI_Test.UGI_Test_2 {
 		public void AddItem() {
 			var heroId = Random.Range(0, HeroPathManager.Instance.HeroData.Count + 1) %
 					HeroPathManager.Instance.HeroData.Count;
-			var modelPath = HeroPathManager.Instance.HeroData[heroId].HeroIconPath;
-			var model = Instantiate(Resources.Load(modelPath)) as HeroIconModel ??
-					throw new Exception($"Can't instantiate {modelPath}");
+			var model = Instantiate(HeroPathManager.Instance.HeroData[heroId].HeroIconModel) as HeroIconModel ??
+					throw new Exception($"Can't instantiate {HeroPathManager.Instance.HeroData[heroId].HeroIconModel}");
 			model.HeroId = heroId;
 			model.Level = Random.Range(1, 31);
 			model.Exp = Random.value;

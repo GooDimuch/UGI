@@ -10,14 +10,13 @@ namespace UGI_Test.UGI_Test_2 {
 		[Serializable]
 		public class HeroPathData {
 			[ReadOnly] public int HeroId;
-			[SerializeField] private GameObject HeroPreviewPrefab;
-			[SerializeField] private ScriptableObject HeroIconModel;
-			public string HeroPreviewPath => GetPathByResources(HeroPreviewPrefab);
-			public string HeroIconPath => GetPathByResources(HeroIconModel);
+			public GameObject HeroPreviewPrefab;
+			public ScriptableObject HeroIconModel;
 		}
 
 		public List<HeroPathData> HeroData = new List<HeroPathData>();
 
+#if UNITY_EDITOR
 		private void OnValidate() {
 			for (var i = 0; i < HeroData.Count; i++) { HeroData[i].HeroId = i; }
 		}
@@ -30,5 +29,6 @@ namespace UGI_Test.UGI_Test_2 {
 								nameof(Resources).Length +
 								1),
 						null);
+#endif
 	}
 }
