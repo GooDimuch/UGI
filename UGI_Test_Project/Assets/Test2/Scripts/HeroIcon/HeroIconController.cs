@@ -20,8 +20,8 @@ namespace UGI_Test.UGI_Test_2 {
 
 		private HeroIconView InitializeItemView() {
 			var view = GetComponent<HeroIconView>();
-			view.IconPath = $"heroes/{Model.Name}Icon";
-			view.HeroImage.sprite = Resources.Load<Sprite>(view.IconPath);
+			view.HeroName.text = Model.Name;
+			view.HeroImage.sprite = Model.Icon;
 			view.ExpSlider.value = Model.Exp;
 			view.LevelText.text = Model.Level.ToString();
 			view.SelectedBorder.SetActive(false);

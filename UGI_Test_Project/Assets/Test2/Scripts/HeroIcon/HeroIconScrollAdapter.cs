@@ -10,7 +10,7 @@ namespace UGI_Test.UGI_Test_2 {
 		public GameObject HeroPrefab;
 
 		private Transform Content;
-		private HeroIconController _selectedItem;
+		[ReadOnly] [SerializeField] public HeroIconController SelectedItem;
 		private readonly List<HeroIconController> _heroIcons = new List<HeroIconController>();
 
 		private void Start() {
@@ -26,13 +26,18 @@ namespace UGI_Test.UGI_Test_2 {
 			return null;
 		}
 
-		public void AddItem() =>
-				AddItem(new HeroIconModel(Random.Range(0, 10) % 2 == 0 ? "IronHead" : "AnotherHero",
-						Random.Range(1, 30),
-						Random.value));
-
-		public void AddItem(string name, int level, float exp, bool selected) =>
-				AddItem(new HeroIconModel(name, level, exp));
+		public void AddItem() {
+			var heroId = Random.Range(0, HeroPathManager.Instance.HeroData.Count);
+			var modelPath = HeroPathManager.Instance
+					.HeroData[heroId]
+					.HeroIconPath;
+			var model = Instantiate(Resources.Load(modelPath)) as HeroIconModel ??
+					throw new Exception($"Can't instantiate {modelPath}");
+			model.HeroId = heroId;
+			model.Level = Random.Range(1, 31);
+			model.Exp = Random.value;
+			AddItem(model);
+		}
 
 		public void AddItem(HeroIconModel model) {
 			var heroGO = Instantiate(HeroPrefab, Content);
@@ -41,16 +46,16 @@ namespace UGI_Test.UGI_Test_2 {
 			viewController.Model = model;
 
 			viewController.View.MainButton.onClick.AddListener(() => {
-				if (_selectedItem.View.gameObject != viewController.View.gameObject) {
-					_selectedItem.SetSelected(false);
-					_selectedItem = viewController;
-					_selectedItem.SetSelected(true);
+				if (SelectedItem.View.gameObject != viewController.View.gameObject) {
+					SelectedItem.SetSelected(false);
+					SelectedItem = viewController;
+					SelectedItem.SetSelected(true);
 				}
 			});
 
 			if (_heroIcons.Count == 0) {
-				_selectedItem = viewController;
-				_selectedItem.SetSelected(true);
+				SelectedItem = viewController;
+				SelectedItem.SetSelected(true);
 			}
 			_heroIcons.Add(viewController);
 		}

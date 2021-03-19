@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 4612436557118279344}
   - component: {fileID: 4890230363034188597}
   m_Layer: 5
-  m_Name: Hero_Item
+  m_Name: HeroIcon_Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,6 +418,7 @@ MonoBehaviour:
   MainButton: {fileID: 8740996502720174248}
   HeroImage: {fileID: 2269722036734734009}
   ExpSlider: {fileID: 4570866714674553184}
+  HeroName: {fileID: 6240287996855488035}
   LevelText: {fileID: 6240287997080258399}
   SelectedBorder: {fileID: 1360956446472107304}
 --- !u!1001 &5154631049879883825
@@ -436,6 +437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: IronHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229792209738309140, guid: 5120b3926a9a23b46b30c5c071da16db,
+        type: 3}
+      propertyPath: m_Name
+      value: HeroName_Text
       objectReference: {fileID: 0}
     - target: {fileID: 1229792210095986542, guid: 5120b3926a9a23b46b30c5c071da16db,
         type: 3}
@@ -620,6 +626,18 @@ MonoBehaviour:
 --- !u!114 &6240287997080258399 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1229792210095986542, guid: 5120b3926a9a23b46b30c5c071da16db,
+    type: 3}
+  m_PrefabInstance: {fileID: 5154631049879883825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6240287996855488035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1229792209738309138, guid: 5120b3926a9a23b46b30c5c071da16db,
     type: 3}
   m_PrefabInstance: {fileID: 5154631049879883825}
   m_PrefabAsset: {fileID: 0}
