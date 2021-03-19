@@ -22,16 +22,11 @@ namespace UGI_Test.UGI_Test_1 {
 				var prefab = Resources.Load($"Prefabs/ShipSlots/{type}_{nameof(ShipSlot)}") as GameObject ??
 						throw new Exception($"Can't find prefab for {type}Slot by \"ShipSlots/{type}Slot\"");
 				var go = Instantiate(prefab, view.ShipSlotsContainer);
-				var viewController = GetController<ShipSlotController>(go);
+				var viewController = go.GetComponentForce<ShipSlotController>();
 				_shipSlots.Add(viewController);
 				model.AddSlotShip(viewController.Model);
 			}
 			view.AddSlotShip(_shipSlots);
-		}
-
-		private static T GetController<T>(GameObject go) where T : MonoBehaviour {
-			if (!go.TryGetComponent(typeof(T), out var component)) { component = go.AddComponent<T>(); }
-			return component as T ?? throw new Exception($"Can't get {nameof(T)} component");
 		}
 
 		public bool ContainsItem(SlotItemController item) =>
