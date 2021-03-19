@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace UGI_Test_2 {
+namespace UGI_Test.UGI_Test_2 {
 	public class SkillInfoController : MonoBehaviour {
 		private SkillInfoButtonView _view;
 

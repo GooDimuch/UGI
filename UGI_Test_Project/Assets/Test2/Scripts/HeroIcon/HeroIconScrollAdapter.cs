@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace UGI_Test_2 {
+namespace UGI_Test.UGI_Test_2 {
 	public class HeroIconScrollAdapter : MonoBehaviour {
 		public int AmountHero = 10;
 		public GameObject HeroPrefab;

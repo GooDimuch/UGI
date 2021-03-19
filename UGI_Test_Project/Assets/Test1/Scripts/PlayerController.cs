@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test.UGI_Test_1 {
 	public class PlayerController : MonoBehaviour {
 		public List<SpaceshipController> Spaceships;
 		public List<SlotItemController> SlotItems;

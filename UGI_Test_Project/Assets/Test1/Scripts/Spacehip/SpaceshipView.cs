@@ -4,7 +4,7 @@ using System.Reflection;
 using TMPro;
 using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test.UGI_Test_1 {
 	public class SpaceshipView : MonoBehaviour {
 		public float startPos = -1f;
 		public float offset = 1f;

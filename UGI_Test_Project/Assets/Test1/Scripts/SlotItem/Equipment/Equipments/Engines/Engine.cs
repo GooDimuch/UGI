@@ -1,4 +1,4 @@
-﻿namespace UGI_Test_1 {
+﻿namespace UGI_Test.UGI_Test_1 {
 	public abstract class Engine : Equipment {
 		public float Speed { get; protected set; }
 

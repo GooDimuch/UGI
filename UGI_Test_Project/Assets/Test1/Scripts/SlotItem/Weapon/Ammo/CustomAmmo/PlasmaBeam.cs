@@ -1,4 +1,4 @@
-﻿namespace UGI_Test_1 {
+﻿namespace UGI_Test.UGI_Test_1 {
 	public abstract class PlasmaBeam : Ammo {
 		protected PlasmaBeam(float shotDistance, float damageCoefficient) : base(Type.PlasmaBeam,
 				shotDistance,

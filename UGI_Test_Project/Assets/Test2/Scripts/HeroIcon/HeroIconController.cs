@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UGI_Test_2 {
+namespace UGI_Test.UGI_Test_2 {
 	public class HeroIconController : MonoBehaviour {
 		private HeroIconView _view;
 

@@ -1,4 +1,4 @@
-﻿namespace UGI_Test_1 {
+﻿namespace UGI_Test.UGI_Test_1 {
 	public class ShipSlotController : BaseController<ShipSlotView, ShipSlot> {
 		public SlotItemController SlotItem { get; private set; }
 

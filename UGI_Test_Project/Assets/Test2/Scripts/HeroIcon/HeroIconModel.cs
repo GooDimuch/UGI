@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace UGI_Test_2 {
+namespace UGI_Test.UGI_Test_2 {
 	[CreateAssetMenu(fileName = nameof(HeroIconModel),
 			menuName = "ScriptableObjects/Task_2/" + nameof(HeroIconModel))]
 	public class HeroIconModel : ScriptableObject {

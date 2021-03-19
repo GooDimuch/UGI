@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test.UGI_Test_1 {
 	public class SlotItemController : BaseController<SlotItemView, SlotItem>, IDamageableController {
 		private SpaceshipController _spaceship;
 

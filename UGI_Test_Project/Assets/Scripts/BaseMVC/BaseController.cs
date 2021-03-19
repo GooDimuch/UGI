@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test {
 	public abstract class BaseController<T, E> : MonoBehaviour where T : MonoBehaviour where E : BaseModel {
 		private T _view;
 

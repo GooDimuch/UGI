@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test.UGI_Test_1 {
 	public class ShipSlotView : MonoBehaviour {
 		public MeshRenderer MeshRenderer;
 		public Transform ItemContainer;

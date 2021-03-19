@@ -1,4 +1,4 @@
-﻿namespace UGI_Test_1 {
+﻿namespace UGI_Test.UGI_Test_1 {
 	public abstract class Bullet : Ammo {
 		protected Bullet(float shotDistance, float damageCoefficient) : base(Type.Bullet,
 				shotDistance,

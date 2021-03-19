@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test.UGI_Test_1 {
 	public abstract class Spaceship : BaseModel, IDamageable, IUpgradable {
 #region inspector
 		[SerializeField] private string _name;

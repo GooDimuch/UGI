@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test.UGI_Test_1 {
 	[CreateAssetMenu(fileName = nameof(MachineGun),
 			menuName = "ScriptableObjects/Task_1/" +
 					nameof(SlotItem) +

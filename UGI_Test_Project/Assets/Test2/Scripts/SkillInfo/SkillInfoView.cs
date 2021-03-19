@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace UGI_Test_2 {
+namespace UGI_Test.UGI_Test_2 {
 	public class SkillInfoView : MonoBehaviour {
 		public const float BOTTOM_MARGIN = 12f;
 		public TextMeshProUGUI SkillInfoText;

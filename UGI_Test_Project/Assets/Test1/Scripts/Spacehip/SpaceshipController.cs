@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test.UGI_Test_1 {
 	public class SpaceshipController : BaseController<SpaceshipView, Spaceship>, IUpgradableController,
 			IDamageableController {
 		private readonly List<ShipSlotController> _shipSlots = new List<ShipSlotController>();

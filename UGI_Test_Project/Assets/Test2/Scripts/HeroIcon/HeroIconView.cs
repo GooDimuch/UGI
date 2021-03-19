@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UGI_Test_2 {
+namespace UGI_Test.UGI_Test_2 {
 	public class HeroIconView : MonoBehaviour {
 		[HideInInspector] public string IconPath;
 		public Button MainButton;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace UGI_Test_1 {
+namespace UGI_Test.UGI_Test_1 {
 	[CreateAssetMenu(fileName = nameof(Viper),
 			menuName = "ScriptableObjects/Task_1/" + nameof(Spaceship) + "s/" + nameof(Viper))]
 	public class Viper : Spaceship {
